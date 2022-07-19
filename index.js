@@ -9,9 +9,9 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-if(process.env.NODE_ENV === "produccion") {
+if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
-};
+}
 
 //---------------------QUERYS BASE---------------------
 //------------------QUERYS TABLA CITAS-----------------
@@ -340,6 +340,10 @@ app.get("/comentariosPorMedicoBaja/:id_med", async (req, res) => {
   } catch (error) {
     console.error(error.message);
   }
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 const server = app.listen(PORT, () => {
