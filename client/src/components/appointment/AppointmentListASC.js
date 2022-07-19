@@ -8,7 +8,7 @@ const AppointmentListASC = (props) => {
 
   const getCitasPorMedico = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/citasPorMedicoYCercania/${props.props.props.id_med}`);
+      const response = await fetch(`/citasPorMedicoYCercania/${props.props.props.id_med}`);
       const jsonData = await response.json();
       setCitas(jsonData);
 

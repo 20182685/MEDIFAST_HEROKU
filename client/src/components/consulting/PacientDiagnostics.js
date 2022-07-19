@@ -14,7 +14,7 @@ const PastDiagnostics = ({cita}) => {
 
   const getReceta = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/recetas/${cita.id_cit}`);
+      const response = await fetch(`/recetas/${cita.id_cit}`);
       const jsonData = await response.json();
       setReceta(jsonData);
 

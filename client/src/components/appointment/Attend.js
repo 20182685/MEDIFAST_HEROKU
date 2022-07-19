@@ -19,7 +19,7 @@ export default function NewAppointment({ cita }) {
 
     try {
       const body = { diagnostico };
-      const response = await fetch(`http://localhost:5000/citas1/${cita.id_cit}`, {
+      const response = await fetch(`/citas1/${cita.id_cit}`, {
         method: 'PUT',
         headers: { 'Content-type': 'application/json' },
         body: JSON.stringify(body)
@@ -36,7 +36,7 @@ export default function NewAppointment({ cita }) {
 
   const deleteReceta = async (id_rec) => {
     try {
-      const deleteReceta = await fetch(`http://localhost:5000/recetas/${id_rec}`, {
+      const deleteReceta = await fetch(`/recetas/${id_rec}`, {
         method: 'DELETE'
       });
 
@@ -51,7 +51,7 @@ export default function NewAppointment({ cita }) {
 
   const getRecetas = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/recetas/${cita.id_cit}`);
+      const response = await fetch(`/recetas/${cita.id_cit}`);
       const jsonData = await response.json();
       setRecetas(jsonData);
 
@@ -74,7 +74,7 @@ export default function NewAppointment({ cita }) {
 
     try {
       const body = { id_rec, id_cit, medicamento, cantidad, frecuencia, duracion };
-      const response = fetch(`http://localhost:5000/recetas/`, {
+      const response = fetch(`/recetas/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)

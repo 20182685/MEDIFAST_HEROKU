@@ -21,7 +21,7 @@ export default function Reeschedule({ cita }) {
 
     try {
       const body = { fecha, hora };
-      const response = await fetch(`http://localhost:5000/citas/${cita.id_cit}`, {
+      const response = await fetch(`/citas/${cita.id_cit}`, {
         method: 'PUT',
         headers: { 'Content-type': 'application/json' },
         body: JSON.stringify(body)

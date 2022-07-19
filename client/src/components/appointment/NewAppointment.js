@@ -25,7 +25,7 @@ export default function NewAppointment() {
 
     try {
       const body = { id_cit, id_med, id_pac, fecha, hora, diagnostico };
-      const response = await fetch('http://localhost:5000/citas', {
+      const response = await fetch('/citas', {
         method: 'POST',
         headers: { 'Content-type': 'application/json' },
         body: JSON.stringify(body)

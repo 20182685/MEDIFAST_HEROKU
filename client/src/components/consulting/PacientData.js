@@ -5,7 +5,7 @@ const PacientData = (props) => {
 
   const getMedicos = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/pacientes/${props.props.id_pac}`);
+      const response = await fetch(`/pacientes/${props.props.id_pac}`);
       const jsonData = await response.json();
       setPacientes(jsonData);
 

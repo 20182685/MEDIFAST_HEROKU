@@ -3,9 +3,15 @@ const socket = require("socket.io");
 const app = express();
 const cors = require("cors");
 const pool = require("./db");
+const path = require("path");
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+
+if(process.env.NODE_ENV === "produccion") {
+  app.use(express.static(path.join(__dirname, "client/build")));
+};
 
 //---------------------QUERYS BASE---------------------
 //------------------QUERYS TABLA CITAS-----------------
@@ -336,8 +342,8 @@ app.get("/comentariosPorMedicoBaja/:id_med", async (req, res) => {
   }
 });
 
-const server = app.listen(5000, () => {
-  console.log("El servidor de datos se ha iniciado en el puerto 5000.")
+const server = app.listen(PORT, () => {
+  console.log(`El servidor de datos se ha iniciado en el puerto ${PORT}.`)
 });
 
 //----------------------MESSAGING----------------------

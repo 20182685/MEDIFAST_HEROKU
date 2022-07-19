@@ -6,7 +6,7 @@ const UserCard = (props) => {
 
 	const getMedico = async () => {
 		try {
-			const response = await fetch(`http://localhost:5000/medicos/${props.props.id_med}`);
+			const response = await fetch(`/medicos/${props.props.id_med}`);
 			const jsonData = await response.json();
 			setMedico(jsonData);
 

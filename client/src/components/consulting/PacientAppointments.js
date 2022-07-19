@@ -6,7 +6,7 @@ const PacientAppointments = (props) => {
 
   const getCitasPorMedico = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/citasPorPaciente/${props.props.id_pac}`);
+      const response = await fetch(`/citasPorPaciente/${props.props.id_pac}`);
       const jsonData = await response.json();
       setCitas(jsonData);
 

@@ -6,7 +6,7 @@ const ReviewListASC = (props) => {
 
   const getComentarios = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/comentariosPorMedicoBaja/${props.props.props.id_med}`);
+      const response = await fetch(`/comentariosPorMedicoBaja/${props.props.props.id_med}`);
       const jsonData = await response.json();
       setComentarios(jsonData);
 
