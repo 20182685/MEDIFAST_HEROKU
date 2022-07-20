@@ -46,6 +46,18 @@ function App() {
           path="/perfilmedico"
           element={<PerfilMed />}
         />
+        <Route
+          path="/calendar"
+          element={<CalendarPage id_med='0001' />}
+        />
+        <Route
+          path="/config"
+          element={<Configuration id_med='0001' />}
+        />
+         <Route
+          path="/manage"
+          element={<Management id_med='0001' />}
+        />
       </Routes>
     </BrowserRouter>
   );
