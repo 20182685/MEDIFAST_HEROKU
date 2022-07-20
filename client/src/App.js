@@ -7,7 +7,11 @@ import MedicalSearchPage from './pages/MedicalSearchPage.js';
 import AttentionPage from './pages/AttentionPage.js';
 import MessagingPatientPage from './pages/MessagingPatientPage.js';
 import PerfilMed from './components/perfilMedico/PerfilFrame.js'
-
+import Landing from './pages/Landing.js';
+import InfoPaciente from "./pages/InfoPaciente.js"
+import RegistroInter from './pages/RegistroInter.js';
+import RegistroMedico from './pages/RegistroMedico.js';
+import RegistroPaciente from './pages/RegistroPaciente.js';
 //import ExamplePage from './ExamplePage';
 
 function App() {
@@ -45,6 +49,26 @@ function App() {
         <Route
           path="/perfilmedico"
           element={<PerfilMed />}
+        />
+        <Route
+          path="/"
+          element={<Landing/>}
+        />
+        <Route
+          path="/info-paciente"
+          element={<InfoPaciente/>}
+        />
+        <Route
+          path="/registro-inter"
+          element={<RegistroInter/>}
+        />
+        <Route
+          path="/registro-inter/registro-med"
+          element={<RegistroMedico/>}
+        />
+        <Route
+          path="/registro-inter/registro-pac"
+          element={<RegistroPaciente/>}
         />
       </Routes>
     </BrowserRouter>
