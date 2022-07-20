@@ -306,6 +306,46 @@ app.get("/citasPorPaciente/:id_pac", async (req, res) => {
   }
 });
 
+//----------  MAURICIO  ----------
+app.post("/pacienteAgendar", async (req, res) => {
+  try {
+    const allMedicos = await pool.query("SELECT * medicos");
+    const { id_pac, nombre, apellido, nacimiento, edad, genero, grupo_sanguineo, direccion, telefono, email } = req.body;
+    const newPaciente = await pool.query("INSERT INTO pacientes (id_pac, nombre, apellido, nacimiento, edad, genero, grupo_sanguineo, direccion, telefono, email) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *", [id_pac, nombre, apellido, nacimiento, edad, genero, grupo_sanguineo, direccion, telefono, email]);
+    res.json(newPaciente.rows[0]);
+
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
+app.get("/medicosLista/:id_med", async (req, res) => {
+  try {
+    const { id_med } = req.params;
+    const medicos = await pool.query("SELECT COMENTARIOS.ID_COM, PACIENTES.NOMBRE, PACIENTES.APELLIDO, PACIENTES.EMAIL, COMENTARIOS.CALIFICACION, COMENTARIOS.COMENTARIO, COMENTARIOS.FECHA FROM COMENTARIOS JOIN PACIENTES ON COMENTARIOS.ID_PAC = PACIENTES.ID_PAC JOIN MEDICOS ON COMENTARIOS.ID_MED = MEDICOS.ID_MED AND MEDICOS.ID_MED = $1");
+    res.json(medico.rows);
+
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
+app.put("/editarPaciente/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatePatient = await pool.query(
+      "UPDATE paciente SET description = $1 WHERE todo_id = $2",
+      [description, id]
+    );
+
+    res.json("Todo was updated!");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//----------------------------------------------------------------
+
 //SELECCIONAR COMENTARIOS POR MEDICO
 app.get("/comentariosPorMedico/:id_med", async (req, res) => {
   try {

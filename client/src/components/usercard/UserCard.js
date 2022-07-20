@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
 import '../../css/usercard/UserCard.css';
+import EditMedicInfo from './EditMedicInfo';
+
 
 const UserCard = (props) => {
 	const [medico, setMedico] = useState([]);
 
 	const getMedico = async () => {
 		try {
-			const response = await fetch(`/medicos/${props.props.id_med}`);
+			const response = await fetch(`http://localhost:5000/medicos/${props.props.id_med}`);
 			const jsonData = await response.json();
 			setMedico(jsonData);
 
@@ -18,6 +21,7 @@ const UserCard = (props) => {
 	useEffect(() => {
 		getMedico();
 	}, []);
+
 
 	return (
 		<div className='pt-3'>
@@ -33,7 +37,9 @@ const UserCard = (props) => {
 					<p className='mb-2'><i className='fa fa-globe mr-2'></i> {medico.web}</p>
 					<p className='mb-2'><i className='fa fa-map-marker-alt mr-2'></i> {medico.ubicacion}</p>
 				</div>
+				<a><EditMedicInfo medico={props.props.id_med} /></a>
 			</div>
+
 		</div>
 	);
 };

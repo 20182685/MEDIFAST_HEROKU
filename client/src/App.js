@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/appointments"
+          path="/appointment"
           element={<AppointmentPage id_med='0001' />}
         />
         <Route
@@ -24,6 +24,10 @@ function App() {
         />
         <Route
           path="/messaging"
+          element={<MessagingPage id_med='0001' />}
+        />
+        <Route
+          path="/"
           element={<MessagingPage id_med='0001' />}
         />
       </Routes>
