@@ -223,7 +223,7 @@ INSERT INTO MEDICOS (id_med, nombre, apellido, cmp, especialidad, email, telefon
 
 INSERT INTO PACIENTES (id_pac, nombre, apellido, nacimiento, edad, genero, grupo_sanguineo, direccion, telefono, email) VALUES ('0001', 'Sebastian', 'Guevara', '1995-05-24', '27', 'Masculino', 'RH+', 'Jr. Chincha 334 Urb. Mesa Redonda SMP', '+51 854123647', 'bastian_9097@hotmail.com');
 INSERT INTO PACIENTES (id_pac, nombre, apellido, nacimiento, edad, genero, grupo_sanguineo, direccion, telefono, email) VALUES ('0002', 'Rosario', 'Vasquez', '1960-06-25', '62', 'Femenino', 'RH-', 'Jr. Chincha 334 Urb. Mesa Redonda SMP', '+51 564712354', 'doctoracharo@hotmail.com');
-
+INSERT INTO PACIENTES (id_pac, nombre, apellido, nacimiento, edad, genero, grupo_sanguineo, direccion, telefono, email) VALUES ('0003', 'Ricardo', 'Gareca', '1958-02-10', '64', 'Masculino', 'RH-', 'Jr. la videna', '+51 987654321', 'rgareca@hotmail.com');
 -----------------QUERYS CASO NEGOCIO-----------------
 SELECCIONAR CITAS POR MEDICO
 

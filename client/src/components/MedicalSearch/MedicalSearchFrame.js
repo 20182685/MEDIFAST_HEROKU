@@ -34,7 +34,7 @@ const MedicalSearchFrame = (props) => {
                                 <div className='col-sm-12 col-md-5'>
                                     <div className='mb-0 position-relative'>
                                         <select className='form-control time-during select2input select2-hidden-accessible' value={seleccion} onChange={handleOnChange}>
-                                            <option value='ordenar'>Ordenar</option>
+                                            <option value='ordenar'></option>
                                         </select>
                                     </div>
                                 </div>

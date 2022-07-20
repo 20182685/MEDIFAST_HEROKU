@@ -5,10 +5,12 @@ import ConsultingPage from './pages/ConsultingPage.js';
 import MessagingPage from './pages/MessagingPage.js';
 import MedicalSearchPage from './pages/MedicalSearchPage.js';
 import AttentionPage from './pages/AttentionPage.js';
+import Login from './components/loginPatient/login.js';
 import MessagingPatientPage from './pages/MessagingPatientPage.js';
-import PerfilMed from './components/perfilMedico/PerfilFrame.js'
+import PerfilFrame from './pages/perfilPage.js';
 
 //import ExamplePage from './ExamplePage';
+
 
 function App() {
   return (
@@ -24,7 +26,7 @@ function App() {
         />
         <Route
           path="/consulting"
-          element={<ConsultingPage id_med='0001' />}
+          element={<ConsultingPage id_cit='0007' id_med='0001' id_pac='0001' />}
         />
         <Route
           path="/messaging"
@@ -32,11 +34,15 @@ function App() {
         />
         <Route 
           path="/MedicalSearch"
-          element={<MedicalSearchPage id_bus='1001' />}
+          element={<MedicalSearchPage id_pac='0003'  />}
         />
         <Route 
           path="/attention"
-          element={<AttentionPage id_cit='0007' id_med='0001' />}
+          element={<AttentionPage id_cit='0007'/>}
+        />
+        <Route 
+          path="/Login"
+          element={<Login />}
         />
         <Route
           path="/mensajepaciente"
@@ -44,7 +50,7 @@ function App() {
         />
         <Route
           path="/perfilmedico"
-          element={<PerfilMed />}
+          element={<PerfilFrame id_med='0001'/>}
         />
       </Routes>
     </BrowserRouter>

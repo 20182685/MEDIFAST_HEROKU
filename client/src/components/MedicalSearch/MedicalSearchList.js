@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
 import '../../css/MedicalSearch/MedicalSearchFrame.css';
 
-const MedicalSearchList = (props) => {
+const MedicalSearchList = () => {
     const [bus_med, setbuscar] = useState([]);
   
     const getbuscarmedico = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/buscarmedico/${props.props.props.id_bus}`);
+        const response = await fetch("/medicos");
         const jsonData = await response.json();
         setbuscar(jsonData);
   
@@ -30,15 +31,16 @@ const MedicalSearchList = (props) => {
                   <th className='border-bottom p-3'>Nombre del medico</th>
                   <th className='border-bottom p-3'>Especialidad</th>
                   <th className='border-bottom p-3'>Tipo de atención</th>
+                  <th className='border-bottom p-3'>Ficha</th>
                 </tr>
               </thead>
               <tbody>
                 {bus_med.map(buscar => (
                   <tr>
-                    <td className='p-3'>{buscar.id_bus}</td>
-                    <td className='p-3'>{buscar.nombre_bus}</td>
-                    <td className='p-3'>{buscar.especialidad_bus}</td>
-                    <td className='p-3'>{buscar.tipo_aten}</td>
+                    <td className='p-3'>{buscar.id_med}</td>
+                    <td className='p-3'>{buscar.nombre}</td>
+                    <td className='p-3'>{buscar.especialidad}</td>
+                    <td className='p-3'>Virtual</td>
                   </tr>
                 ))}
               </tbody>

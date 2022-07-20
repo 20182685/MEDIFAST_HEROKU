@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
-const AttentionList = (props) => {
+const AttentionList = () => {
     const [atencion, setatencion] = useState([]);
   
     const getatencion = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/citas/${props.props.props.id_cit}`);
-        const response1 = await fetch(`http://localhost:5000/citas1/${props.props.props.id_cit}`);
-        const response2 = await fetch(`http://localhost:5000/medicos/${props.props.props.id_med}`);
-        const response3 = await fetch(`http://localhost:5000/recetas/${props.props.props.id_cit}`);
-        
+        const response = await fetch(`/citas`);
         const jsonData = await response.json();
-        const jsonData1 = await response1.json();
-        const jsonData2 = await response2.json();
-        const jsonData3 = await response3.json();
-
-        setatencion(jsonData, jsonData1, jsonData2, jsonData3);
+        setatencion(jsonData);
   
       } catch (error) {
         console.error(error.message);
@@ -34,19 +26,20 @@ const AttentionList = (props) => {
               <thead>
                 <tr>
                   <th className='border-bottom p-3'>ID</th>
+                  <th className='border-bottom p-3'>Nombre</th>
                   <th className='border-bottom p-3'>fecha de cita</th>
-                  <th className='border-bottom p-3'>doctor</th>
                   <th className='border-bottom p-3'>diagnostico</th>
-                  <th className='border-bottom p-3'>receta</th>
+                  <th className='border-bottom p-3'>Receta</th>
                 </tr>
               </thead>
               <tbody>
                 {atencion.map(aten => (
                   <tr>
+                    <td className='p-3'>{aten.id_cit}</td>
+                    <td className='p-3'>Doctor Muerte</td>
                     <td className='p-3'>{aten.fecha}</td>
-                    <td className='p-3'>{aten.nombre} {aten.apellido}</td>
                     <td className='p-3'>{aten.diagnostico}</td>
-                    <td className='p-3'>{aten.receta}</td>
+                    <td className='p-3'>Salbutamol</td>
                   </tr>
                 ))}
               </tbody>
